@@ -16,21 +16,11 @@ public:
         while(temp!=NULL){
 count++; temp=temp->next;}
         cout<<count<<endl;
-         if(count%2==0){
              count=count/2;
              while(count--){
                  head=head->next;
              }
              return head;
-         }
-        else{
-            count=count/2;
-            while(count--){
-                // cout<<count<<endl;
-                 head=head->next;
-             }
-             return head;
-        }
-        
+
     }
 };
