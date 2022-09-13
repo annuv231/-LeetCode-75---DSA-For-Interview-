@@ -12,6 +12,8 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         //another method using rabbit and hair method
+        if(head==NULL){
+return head;}
         ListNode* slow=head;
         ListNode* fast=head;
         while(fast!=NULL && fast->next!=NULL){
