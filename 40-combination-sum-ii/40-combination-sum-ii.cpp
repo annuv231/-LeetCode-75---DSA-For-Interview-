@@ -8,6 +8,7 @@ class Solution {
          }
         
         //using striver method
+        //run for each first index.. dont take if there is same
        for(int i=idx;i<arr.size();i++){
            if(i>idx && arr[i]==arr[i-1]){
                continue;
