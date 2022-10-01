@@ -16,8 +16,7 @@ public:
             return;
         }
         ans.push_back(root->val);
-        inorder(root->left,ans);
-        
+        inorder(root->left,ans); 
         inorder(root->right,ans);
     }
 public:
