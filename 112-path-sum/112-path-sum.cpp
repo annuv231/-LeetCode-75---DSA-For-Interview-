@@ -15,10 +15,10 @@ public:
         if(root==NULL){
             return false;
         }
-        if(root->left==NULL &&root->right==NULL&&target-(root->val)==0){
+        if(root->left==NULL &&root->right==NULL&&target-root->val==0){
            return true;
         }
-       if(ansPath(root->left,target-(root->val))|| ansPath(root->right,target-(root->val))){
+       if(ansPath(root->left,target-root->val)|| ansPath(root->right,target-root->val)){
            return true;
        }  
         return false;
