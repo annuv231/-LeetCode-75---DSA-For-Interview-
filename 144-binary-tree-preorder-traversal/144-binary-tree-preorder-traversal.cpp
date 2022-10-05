@@ -10,14 +10,40 @@
  * };
  */
 class Solution {
+    
+    //recursive
+// public:
+//     void inorder(TreeNode* root,vector<int>&ans){
+//         if(root==NULL){
+//             return;
+//         }
+//         ans.push_back(root->val);
+//         inorder(root->left,ans); 
+//         inorder(root->right,ans);
+//     }
+    
+    //iterative;
+    
 public:
     void inorder(TreeNode* root,vector<int>&ans){
+        stack<TreeNode*>st;
         if(root==NULL){
             return;
         }
-        ans.push_back(root->val);
-        inorder(root->left,ans); 
-        inorder(root->right,ans);
+        st.push(root);
+        while(!st.empty()){
+            TreeNode* f=st.top();
+            st.pop();
+            ans.push_back(f->val);
+            // cout<<f->val<<" ";
+            if(f->right!=NULL){
+                st.push(f->right);
+            }
+            if(f->left!=NULL){
+               st.push(f->left);
+            }
+            
+        }
     }
 public:
     vector<int> preorderTraversal(TreeNode* root) {
