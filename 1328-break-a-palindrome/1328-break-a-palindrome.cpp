@@ -18,10 +18,12 @@ public:
         if(n==1){
             return ans;
         }
+        
+        //brute force approach
         for(int i=0;i<n;i++){
             ans+='z';
         }
-        for(char i='a';i<='z';i++){
+        for(char i='a';i<='b';i++){
                
             for(int j=0;j<n;j++){
                 string temp=palindrome;
