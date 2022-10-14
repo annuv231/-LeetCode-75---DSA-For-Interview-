@@ -14,21 +14,44 @@ public:
         if(head==NULL){
             return head;
         }
-        int n=0;
-        ListNode* temp=head;
-        while(temp!=NULL){
-            n++;
-            temp=temp->next;
-        }
-        int x=n/2-1;
-        temp=head;
-        while(x-- &&temp->next!=NULL){
-            temp=temp->next;
-        }
-        if(temp->next==NULL){
+        if(head->next==NULL){
             return NULL;
         }
-      else  temp->next=temp->next->next;
+        
+        // Brute force
+        
+//         int n=0;
+//         ListNode* temp=head;
+        
+       //  while(temp!=NULL){
+       //      n++;
+       //      temp=temp->next;
+       //  }
+       //  int x=n/2-1;
+       //  temp=head;
+       //  while(x-- &&temp->next!=NULL){
+       //      temp=temp->next;
+       //  }
+       //  if(temp->next==NULL){
+       //      return NULL;
+       //  }
+       // else  temp->next=temp->next->next;
+        
+        
+        // tortoise and hare method
+        //no need to count size
+        ListNode* slow=head;
+        ListNode* fast=head;
+        ListNode* prev=head;
+        while(fast!=NULL&&fast->next!=NULL){
+            if(slow!=head){
+                prev=prev->next;
+            }
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        prev->next=slow->next;
+        delete slow;
         return head;
     }
 };
