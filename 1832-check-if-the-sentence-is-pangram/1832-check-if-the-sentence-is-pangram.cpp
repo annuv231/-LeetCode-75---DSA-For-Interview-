@@ -1,13 +1,27 @@
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
-        set<char>st;
+        // set<char>st;
+        // for(auto x:sentence){
+        //     st.insert(x);
+        // }
+        // if(st.size()==26){
+        //     return true;
+        // }
+        // return false;
+        
+        //method 2:
+        int str[26]={0};
         for(auto x:sentence){
-            st.insert(x);
+            str[x-'a']++;
+            cout<<"'Hello'";
         }
-        if(st.size()==26){
-            return true;
+        for(int i=0;i<26;i++){
+            cout<<str[i]<<" ";
+            if(str[i]==0){
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 };
