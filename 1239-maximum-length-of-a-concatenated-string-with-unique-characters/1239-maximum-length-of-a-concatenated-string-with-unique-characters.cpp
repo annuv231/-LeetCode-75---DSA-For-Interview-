@@ -1,11 +1,17 @@
 class Solution {
 public:
-    bool valid(string s){
-        set<char>st;
-        for(auto c:s){
-            st.insert(c);
+    bool valid(string &s)
+    {
+        vector<int> v(26,0);
+        for(int i=0;i<s.size();i++)
+        {
+            if(v[s[i]-'a']==1)
+            {
+                return false;
+            }
+            v[s[i]-'a']++;
         }
-        return (s.length()==st.size());
+        return true;
     }
     void ansLength(vector<string>arr,int idx,int n ,int &ans,string s){
         if(!valid(s)){
