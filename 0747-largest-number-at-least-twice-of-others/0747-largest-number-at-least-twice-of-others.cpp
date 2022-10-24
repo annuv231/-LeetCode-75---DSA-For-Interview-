@@ -1,17 +1,24 @@
 class Solution {
 public:
-    int dominantIndex(vector<int>& num) {
-        vector<int>nums=num;
-        sort(nums.begin(),nums.end());
-        int n=nums.size();
-        if((nums[n-1])<nums[n-2]*2){
-            return -1;
-        }
-        for(int i=0;i<n;i++){
-            if(nums[n-1]==num[i]){
-                return i;
+    int dominantIndex(vector<int>& nums) {
+        int first_max=nums[0];
+        int second_max=0;
+        int idx=0;
+        for(int i=1;i<nums.size();i++){
+            if(first_max<nums[i]){
+                second_max=first_max;
+                first_max=nums[i];
+                idx=i;
+                
+            }
+            else if(second_max<nums[i]){
+                second_max=nums[i];
             }
         }
-        return 0;
+        cout<<first_max<<":"<<second_max<<endl;
+        if(first_max<second_max*2){
+            return -1;
+        }
+        return idx;
     }
 };
