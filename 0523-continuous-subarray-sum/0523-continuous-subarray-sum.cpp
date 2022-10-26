@@ -24,7 +24,7 @@ public:
         for(int i=0;i<nums.size();i++){
             prefix=prefix+nums[i];
             int find=prefix%k;
-             cout<<find<<" ";
+             // cout<<find<<" ";
             if(find==0&&i!=0){
                 return true;
             }
@@ -37,10 +37,10 @@ public:
                mp[find]=i;
             }
         }
-        cout<<endl;
-        for(auto [k,v]: mp){
-            cout<<k<<": "<<v<<endl;
-        }
+        // cout<<endl;
+        // for(auto [k,v]: mp){
+        //     cout<<k<<": "<<v<<endl;
+        // }
         return false;
     }
 };
